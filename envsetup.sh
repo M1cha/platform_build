@@ -1054,9 +1054,12 @@ function set_java_home() {
                 export JAVA_HOME_REAL=/usr/lib/jvm/java-6-sun
                 ;;
         esac
-    else
+    fi
+    
+    if [ ! "$JAVA_HOME_REAL" ]; then
 	export JAVA_HOME_REAL="$JAVA_HOME"
     fi
+    
     export JAVA_HOME="$(gettop)/build/fake-jdk-tools"
 }
 
